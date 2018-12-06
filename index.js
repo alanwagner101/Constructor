@@ -38,7 +38,6 @@ function RunLetters(randomWord) {
                     p++
                 }
             }
-            console.log(p)
 
             var x = lettersDisplay.includes(res.guess);
             lettersArr.push(res.guess);
