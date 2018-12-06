@@ -5,6 +5,8 @@ var j = 6;
 var lettersDisplay = "";
 var p = 0;
 var lettersArr = [];
+var win = 0;
+var lose = 0;
 
 function RunBlank() {
     var newWord = Words.Words();
@@ -36,6 +38,7 @@ function RunLetters(randomWord) {
                     p++
                 }
             }
+            console.log(p)
 
             var x = lettersDisplay.includes(res.guess);
             lettersArr.push(res.guess);
@@ -52,7 +55,9 @@ function RunLetters(randomWord) {
                 console.log("\n The word was : " + randomWord + "\n");
                 console.log("\nYou ran out of tries! Try Again!\n");
                 console.log("\n========================================\n");
-                j = 8;
+                j = 6;
+                p = 0;
+                lose++
                 lettersDisplay = "";
                 lettersArr = [];
                 RunBlank();
@@ -62,6 +67,8 @@ function RunLetters(randomWord) {
                 console.log("\nYou Win!! Try another one!!\n");
                 console.log("\n========================================\n");
                 p = 0;
+                j = 6;
+                win++
                 lettersDisplay = "";
                 lettersArr = [];
                 RunBlank();
@@ -71,7 +78,8 @@ function RunLetters(randomWord) {
 
                 lettersDisplay += res.guess + ", ";
                 console.log("\nUsed Letters : " + lettersDisplay);
-                console.log("\nTries Left : " + j + "\n");
+                console.log("\nTries Left : " + j);
+                console.log("\nWins : " + win + "    |     Loses : " + lose + "  ")
                 RunLetters(randomWord);
             };
 
